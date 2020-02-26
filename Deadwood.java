@@ -5,8 +5,8 @@ public class Deadwood {
     private static Board board;
 
     public static void main(String[] args){
-        int playerNum = 5;
-        /**
+        int playerNum = 0;
+
         if (args.length != 1){
             System.out.println ("Incorrect number of arguments! Please input number of players");
             System.exit(1);
@@ -22,7 +22,6 @@ public class Deadwood {
             System.out.println("Incorrect input type! Please input number of players");
             System.exit(1);
         }
-         */
 
         System.out.println("Welcome to DEADWOOD!");
 
