@@ -1,34 +1,59 @@
 
+/** Stores information regarding Player information and performs acting and rehearsal tasks */
+
 public class Player {
-    private int money;
+    private String name;
+    private int money = 0;
     private int credit;
     private int rank;
-    private int room; // location 0 is Trailers
-    private int rehearsal; //rehearsal count
-    private boolean onRole;
+    private Role role;
+    private MovieSet room;
+    private int rehearsal;
+    private boolean onRole = false;
 
-    Player(String name, int credit, int rank) {
-        //TODO
+
+    public Player(String name, int credit, int rank, MovieSet room) {
+        this.name = name;
+        this.credit = credit;
+        this.rank = rank;
+        this.room = room;
     }
 
-    public void move() {
-        //TODO
-    }
-
-    public void act() {
-        //TODO
+    //move player to a new destination
+    public void move(MovieSet choice) {
+        this.room = choice;
     }
 
     public void rehearsal() {
-        //TODO
+        this.rehearsal++;
+    }
+
+    //take role
+    public void takeRole(Role role){
+        this.role = role;
+        this.onRole = true;
+    }
+
+    //remove from working
+    public void discardRole(){
+        this.role = null;
+        this.onRole = false;
+    }
+
+    public void setRoom(MovieSet room) {
+        this.room = room;
     }
 
     public int getMoney() {
         return money;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
     public void setMoney(int money) {
-        //TODO
+        this.money = money;
     }
 
     public int getCredit() {
@@ -36,7 +61,7 @@ public class Player {
     }
 
     public void setCredit(int credit) {
-        //TODO
+        this.credit = credit;
     }
 
     public int getRank() {
@@ -44,32 +69,26 @@ public class Player {
     }
 
     public void setRank(int rank) {
-        //TODO
+        this.rank = rank;
     }
 
-    public int getRoom() {
+    public MovieSet getRoom() {
         return room;
-    }
-
-    public void setRoom(int room) {
-        this.room = room;
     }
 
     public int getRehearsal() {
         return rehearsal;
     }
 
-    public void setRehearsal(int rehearsal) {
-        //TODO
+    public void resetRehearsal() {
+        rehearsal = 0;
     }
 
     public boolean isOnRole() {
         return onRole;
     }
 
-    public void setOnRole(boolean onRole) {
-        //TODO
+    public String getName() {
+        return name;
     }
-
-
 }

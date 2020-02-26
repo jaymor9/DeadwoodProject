@@ -1,19 +1,40 @@
-public class SceneCard {
-    private int cardNum;
-    private int budget;
-    private Role[] roles;
+import java.util.ArrayList;
 
-    public SceneCard(int cardNum, int budget, Role[] roles) {
-        this.cardNum = cardNum;
+/** Stores information regarding the various scenes */
+
+public class SceneCard {
+    private int sceneNum;
+    private String sceneName;
+    private String description;
+    private int budget;
+    private ArrayList<Role> roles;
+
+    //constructor
+    public SceneCard(int sceneNum, String sceneName, String description, int budget, ArrayList<Role> roles) {
+        this.sceneNum = sceneNum;
+        this.sceneName = sceneName;
+        this.description = description;
         this.budget = budget;
         this.roles = roles;
     }
 
-    public int getBudget() {
-        return budget;
+    public int getSceneNum() {
+        return this.sceneNum;
     }
 
-    public Role[] getRoles() {
-        return roles;
+    public String getSceneName() {
+        return this.sceneName;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public int getBudget() {
+        return this.budget;
+    }
+
+    public ArrayList<Role> getRoles() {
+        return this.roles;
     }
 }

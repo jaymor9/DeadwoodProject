@@ -1,13 +1,29 @@
+/** This class handles upgrading the player and storing the various costs for upgrading */
+
 public class CastingOffice {
 
-    private int[][] costs = {{4,5}/*rank: 2*/,{10,10}/*3*/,{18,15}/*4*/,{28,20}/*5*/,{40,25}/*6*/};
+    private static int[][] costs ={
+            {2, 4, 5},
+            {3, 10, 10},
+            {4, 18, 15},
+            {5, 28, 20},
+            {6, 40, 25}
+    };
 
-    public boolean canUpgrade(Player upplayer){  //might need to change this to a boolean[][] to return all upgrade options
-        return true;
+    //Upgrades player object and subtracts appropriate credits/money
+    public void upgrade(int[] newRank, Player player){
+        if(newRank[0] == 0){
+            int newCredit = player.getCredit() - newRank[2];
+            player.setCredit(newCredit);
+            player.setRank(newRank[1]);
+        }else if(newRank[0] == 1){
+            int newMoney = player.getMoney() - newRank[2];
+            player.setMoney(newMoney);
+            player.setRank(newRank[1]);
+        }
     }
 
-    public void upgrade(Player usurper){
-        //because I did not want to use upplayer... again.
-        //TODO
+    public int[][] getCosts(){
+        return this.costs;
     }
 }
